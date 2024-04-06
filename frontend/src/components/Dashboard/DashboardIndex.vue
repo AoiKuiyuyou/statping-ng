@@ -1,15 +1,15 @@
 <template>
-    <div class="col-12 mt-4 mt-md-3">
-        <div class="row stats_area mb-5">
-            <div class="col-4">
+    <div class="col-12" style="margin-top: -15px;">
+        <div class="row stats_area" style="margin-bottom: 10px;">
+            <div class="col-6">
                 <span class="font-6 font-weight-bold d-block">{{$store.getters.services.length}}</span>
                 <span class="font-2">{{ $t('total_services') }}</span>
             </div>
-            <div class="col-4">
+            <div class="col-4" style="display: none;">
                 <span class="font-6 font-weight-bold d-block">{{failuresLast24Hours()}}</span>
                 <span class="font-2">{{ $t('failures_24_hours') }}</span>
             </div>
-            <div class="col-4">
+            <div class="col-6">
                 <span class="font-6 font-weight-bold d-block">{{$store.getters.onlineServices(true).length}}</span>
                 <span class="font-2">{{ $t('online_services') }}</span>
             </div>
@@ -33,7 +33,9 @@
       </div>
 
       <div class="row">
-        <div v-for="(service, index) in services_no_group" class="col-12 col-md-4">
+        {{ /* Card with 2 lines: height:50px */ }}
+        {{ /* Card with 3 lines: height:70px */ }}
+        <div v-for="(service, index) in services_no_group" class="col-12" style="margin-bottom: 10px; width: 150px; max-width: 150px; height: 50px; overflow: hidden;">
           <ServiceInfo :service="service" />
         </div>
       </div>

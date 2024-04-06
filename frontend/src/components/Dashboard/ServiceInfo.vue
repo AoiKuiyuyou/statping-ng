@@ -1,15 +1,15 @@
 <template>
-    <div class="dashboard_card card mb-4" :class="{'offline-card': !service.online}">
-        <div class="card-header pb-1">
-            <h6 v-observe-visibility="setVisible">
-                <router-link :to="serviceLink(service)" class="no-decoration">{{service.name}}</router-link>
-                <span class="badge float-right text-uppercase" :class="{'badge-success': service.online, 'badge-danger': !service.online}">
-                    {{service.online ? $t('online') : $t('offline')}}
+    <div class="dashboard_card card" :class="{'offline-card': !service.online}" style="height: 100%;" :title="service.name">
+        <div class="card-header pb-1" style="height: 100%; padding: 5px;">
+            <h6 v-observe-visibility="setVisible" style="word-break: break-all;">
+                <span class="badge float-left text-uppercase" :class="{'badge-success': service.online, 'badge-danger': !service.online}" style="margin-right: 5px;">
+                    {{service.online ? 'ON' : 'NO'}}
                 </span>
+                <router-link :to="serviceLink(service)" class="no-decoration">{{service.name}}</router-link>
             </h6>
         </div>
 
-        <div class="card-body pb-1">
+        <div class="card-body pb-1" style="display: none;">
             <div v-if="loaded" class="row pl-2">
               <div class="col-md-12 col-sm-12 pl-2 mt-2 mt-md-0 mb-3">
                   <ServiceSparkLine :title="set2_name" subtitle="Latency Last 24 Hours" :series="set2"/>
@@ -22,7 +22,7 @@
                 </div>
               </div>
         </div>
-        <div class="card-footer">
+        <div class="card-footer" style="display: none;">
 
           <div class="row">
           <div class="col-5 pr-0">

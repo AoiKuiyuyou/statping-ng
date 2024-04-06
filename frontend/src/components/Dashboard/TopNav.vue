@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg" style="margin-bottom: 15px; padding-top: 0; padding-bottom: 0; height: 20px;">
         <router-link to="/" class="navbar-brand">Statping-ng</router-link>
         <button @click="navopen = !navopen" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <font-awesome-icon v-if="!navopen" icon="bars"/>
